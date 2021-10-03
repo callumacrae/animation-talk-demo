@@ -1,0 +1,30 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@layer base {
+  h1 {
+    @apply text-4xl font-extrabold leading-none;
+  }
+  h2 {
+    @apply text-3xl font-extrabold;
+  }
+  a {
+    @apply underline;
+  }
+  p {
+    @apply mb-4;
+  }
+  .button {
+    @apply px-5 py-3 text-xl font-bold no-underline border-2 border-border rounded-md hover:bg-border;
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
