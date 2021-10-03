@@ -11,12 +11,6 @@
     "vue-router": "^4.0.11"
   },
   "devDependencies": {
-    "@headlessui/vue": "^1.4.1",
-    "@heroicons/vue": "^1.0.4",
-    "@tailwindcss/aspect-ratio": "^0.2.1",
-    "@tailwindcss/forms": "^0.3.4",
-    "@tailwindcss/line-clamp": "^0.2.1",
-    "@tailwindcss/typography": "^0.4.1",
     "autoprefixer": "^10.3.6",
     "@types/tailwindcss": "^2.2.1",
     "tailwindcss": "^2.2.16",
