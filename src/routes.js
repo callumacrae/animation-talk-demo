@@ -35,5 +35,10 @@ export const routes = [
     meta: { title: "State transitions" },
     component: () => import("./views/StateTransition.vue"),
   },
+  {
+    path: "/svg-animations",
+    meta: { title: "SVG transitions" },
+    component: () => import("./views/SvgAnimation.vue"),
+  },
   { path: "/:path(.*)", component: () => import("./views/NotFound.vue") },
 ];
