@@ -30,5 +30,10 @@ export const routes = [
     meta: { title: "List animations (move)" },
     component: () => import("./views/ListAnagram2.vue"),
   },
+  {
+    path: "/state-transitions",
+    meta: { title: "State transitions" },
+    component: () => import("./views/StateTransition.vue"),
+  },
   { path: "/:path(.*)", component: () => import("./views/NotFound.vue") },
 ];

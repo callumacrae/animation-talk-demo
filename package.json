@@ -9,6 +9,7 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.3.4",
     "gsap": "^3.8.0",
+    "lodash": "^4.17.21",
     "vue": "^3.2.19",
     "vue-router": "^4.0.11"
   },

@@ -1,21 +1,38 @@
 <script setup>
 import { computed, ref } from "vue";
+import shuffle from "lodash/fp/shuffle";
 
 const text = ref("");
 
 const splitText = computed(() =>
   text.value.split("").map((char, i) => ({ char, i }))
 );
+
+const shuffledText = ref([]);
+
+function handleInput() {
+  shuffledText.value = splitText.value;
+}
+
+function shuffleText() {
+  shuffledText.value = shuffle(splitText.value);
+}
 </script>
 
 <template>
   <div class="text-center">
     <h1 class="mb-10">List transitions <span class="block">(move)</span></h1>
 
-    <input v-model="text" type="text" class="mb-10" />
+    <form @submit.prevent="shuffleText" @input="handleInput">
+      <input v-model="text" type="text" class="mb-10" />
+    </form>
 
     <transition-group name="anagram" tag="p" class="text-6xl">
-      <span v-for="{ char, i } in splitText" class="inline-block whitespace-pre" :key="i">
+      <span
+        v-for="{ char, i } in shuffledText"
+        class="inline-block whitespace-pre"
+        :key="i"
+      >
         {{ char }}
       </span>
     </transition-group>

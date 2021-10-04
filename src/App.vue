@@ -8,6 +8,7 @@ const links = [
   { text: "JavaScript Animations (+appear)", to: "/js-animations-appear" },
   { text: "List animations (enter + leave)", to: "/list-anagram-1" },
   { text: "List animations (move)", to: "/list-anagram-2" },
+  { text: "State transitions", to: "/state-transitions" },
 ];
 
 const menuOpen = ref(false);
