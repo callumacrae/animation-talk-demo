@@ -4,6 +4,10 @@ import { ref, provide } from "vue";
 const links = [
   { text: "Index page", to: "/" },
   { text: "CSS Animations", to: "/css-animations" },
+  { text: "JavaScript Animations", to: "/js-animations" },
+  { text: "JavaScript Animations (+appear)", to: "/js-animations-appear" },
+  { text: "List animations (enter + leave)", to: "/list-anagram-1" },
+  { text: "List animations (move)", to: "/list-anagram-2" },
 ];
 
 const menuOpen = ref(false);
@@ -14,7 +18,7 @@ provide("menuOpen", menuOpen);
   <transition name="menu-slide">
     <div
       v-show="menuOpen"
-      class="fixed top-0 right-0 h-screen px-8 py-10 w-96 bg-bgSidebar"
+      class="fixed top-0 right-0 z-40 h-screen px-8 py-10 w-96 bg-bgSidebar"
     >
       <h2 class="mb-6">Animation demos</h2>
       <p>
@@ -38,7 +42,7 @@ provide("menuOpen", menuOpen);
 
   <button
     @click.prevent="menuOpen = !menuOpen"
-    class="absolute right-3 top-3 hamburger"
+    class="absolute z-40 right-3 top-3 hamburger"
     :class="{ 'hamburger--active': menuOpen }"
   >
     <svg class="w-10 h-8" viewBox="0 0 35 30">
@@ -61,7 +65,9 @@ provide("menuOpen", menuOpen);
   </button>
 
   <!-- @todo remove overflow hidden before live -->
-  <div class="w-4/5 h-screen py-16 mx-auto overflow-hidden"><router-view /></div>
+  <div class="w-4/5 h-screen py-16 mx-auto overflow-hidden">
+    <router-view :key="$route.path" />
+  </div>
 </template>
 
 <style scoped>

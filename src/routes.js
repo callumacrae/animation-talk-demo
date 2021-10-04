@@ -8,5 +8,27 @@ export const routes = [
     meta: { title: "CSS Animations" },
     component: () => import("./views/CssAnimations.vue"),
   },
+  {
+    path: "/js-animations",
+    meta: { title: "JS Animations" },
+    component: () => import("./views/JsAnimations.vue"),
+    props: { initial: false },
+  },
+  {
+    path: "/js-animations-appear",
+    meta: { title: "JS Animations" },
+    component: () => import("./views/JsAnimations.vue"),
+    props: { initial: true },
+  },
+  {
+    path: "/list-anagram-1",
+    meta: { title: "List animations (enter + leave)" },
+    component: () => import("./views/ListAnagram1.vue"),
+  },
+  {
+    path: "/list-anagram-2",
+    meta: { title: "List animations (move)" },
+    component: () => import("./views/ListAnagram2.vue"),
+  },
   { path: "/:path(.*)", component: () => import("./views/NotFound.vue") },
 ];

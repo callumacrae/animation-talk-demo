@@ -20,6 +20,9 @@
   .button {
     @apply px-5 py-3 text-xl font-bold no-underline border-2 border-border rounded-md hover:bg-border;
   }
+  [type="text"] {
+    @apply rounded-sm bg-hover;
+  }
 }
 
 html {
