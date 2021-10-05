@@ -9,6 +9,7 @@ const links = [
   { text: "List animations (enter + leave)", to: "/list-anagram-1" },
   { text: "List animations (move)", to: "/list-anagram-2" },
   { text: "State transitions", to: "/state-transitions" },
+  { text: "SVG animations", to: "/svg-animations" },
 ];
 
 const menuOpen = ref(false);
