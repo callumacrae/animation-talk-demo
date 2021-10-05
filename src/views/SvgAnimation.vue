@@ -1,65 +1,111 @@
+<script setup>
+import { computed, ref } from "vue";
+import VueSlider from "vue-slider-component";
+import "vue-slider-component/theme/antd.css";
+import chroma from "chroma-js";
+
+import Boat from "../components/Boat.vue";
+import Clouds from "../components/Clouds.vue";
+import FgMountains from "../components/FgMountains.vue";
+import Mountains from "../components/Mountains.vue";
+import Sun from "../components/Sun.vue";
+
+const boatVisible = ref(true);
+const cloudCount = ref(5);
+const time = ref(18);
+
+const waterColorScale = chroma.scale(["#cfffff", "darkblue"]).domain([12, 18]);
+const waterColor = computed(() => {
+  return waterColorScale(time.value);
+});
+// This is simulating opacity, but we don't want to see mountain shadows through
+// the boat so we can't actually use opacity
+const boatShadowColor = computed(() => {
+  return chroma.mix(waterColor.value, "orange", 0.2);
+});
+
+function numToTime(num) {
+  const h = Math.floor(num);
+  const m = Math.round((num % 1) * 60);
+  return `${h}:${m < 10 ? "0" + m : m}`;
+}
+</script>
+
 <template>
   <div class="text-center">
     <h1 class="mb-10">SVG animations</h1>
     <svg viewBox="0 0 1600 900" class="w-full">
-      <circle fill="yellow" r="150" cx="800" cy="550" />
-      <rect fill="darkblue" x="0" y="550" width="1600" height="350" />
+      <mask id="waterMask">
+        <rect fill="white" x="0" y="550" width="1600" height="350" />
+      </mask>
 
-      <path
-        fill="magenta"
-        d="M -600 550 C -520 470 -320 454 -280 454 C -140 454 -80 374 140 374 C 320 374 340 454 440 454 S 640 502 700 550"
-      />
-      <path
-        fill="red"
-        d="M -1020 550 C -924 486 -684 473.2 -636 473.2 C -468 473.2 -396 409.2 -182 405 C 20 416 66 509 217 486 S 468 511.6 540 550"
-      />
-      <path
-        fill="magenta"
-        d="M 900 550 C 988 454 1208 434.8 1252 434.8 C 1406 434.8 1472 338.8 1714 338.8 C 1912 338.8 1934 434.8 2044 434.8 S 2264 492.4 2330 550"
-      />
-      <path
-        fill="red"
-        d="M 1050 550 C 1059 521 1233 480 1330 509 C 1501 550 1703 306 1710 176 C 2062 423.28 2084 480.88 2194 480.88 S 2414 515.44 2480 550"
-      />
+      <Sun :time="time" />
+      <Mountains :time="time" />
 
-      <path
-        fill="pink"
-        d="M 134 170.5 C 142 159.5 162 157.3 166 157.3 C 180 157.3 186 146.3 208 146.3 C 226 146.3 228 157.3 238 157.3 S 258 163.9 264 170.5"
-      />
-      <path
-        fill="pink"
-        d="M 452.6 54.6 C 443.8 41.4 421.8 38.8 417.4 38.8 C 402 38.8 395.4 25.6 371.2 25.6 C 351.4 25.6 349.2 38.8 338.2 38.8 S 316.2 46.7 309.6 54.6"
-      />
-      <path
-        fill="pink"
-        d="M 947.4 104.6 C 956.2 91.4 978.2 88.8 982.6 88.8 C 998 88.8 1004.6 75.6 1028.8 75.6 C 1048.6 75.6 1050.8 88.8 1061.8 88.8 S 1083.8 96.7 1090.4 104.6"
-      />
-      <path
-        fill="pink"
-        d="M 1052.6 304.6 C 1043.8 291.4 1021.8 288.8 1017.4 288.8 C 1002 288.8 995.4 275.6 971.2 275.6 C 951.4 275.6 949.2 288.8 938.2 288.8 S 916.2 296.7 909.6 304.6"
-      />
-      <path
-        fill="pink"
-        d="M 1352.6 204.6 C 1343.8 191.4 1321.8 188.8 1317.4 188.8 C 1302 188.8 1295.4 175.6 1271.2 175.6 C 1251.4 175.6 1249.2 188.8 1238.2 188.8 S 1216.2 196.7 1209.6 204.6"
-      />
+      <Clouds :cloudCount="cloudCount" :time="time" />
 
-      <path
-        fill="#520752"
-        d="M -940 900 C -844 836 -604 823.2 -556 823.2 C -388 823.2 -316 759.2 -102 755 C 100 766 146 859 297 836 S 548 861.6 620 900"
-      />
-      <path
-        fill="purple"
-        d="M -900 900 C -820 788 -620 765.6 -580 765.6 C -440 765.6 -380 653.6 -182 766 C 21 677 40 765.6 140 765.6 S 340 832.8 360 900"
-      />
+      <rect :fill="waterColor.hex()" x="0" y="550" width="1600" height="350" />
 
-      <path
-        fill="#520752"
-        d="M 2200 786.5 C 2144.2 730.7 2004.9 719.6 1633 728 C 1595 728 1577 686 1479 732 C 1384 773 1396 764 1361 769 S 1270 768 1243 786"
-      />
-      <path
-        fill="purple"
-        d="M 2200 786.5 C 2144.2 730.7 2004.9 719.6 1977 719.6 C 1879.4 719.6 1837.6 663.8 1713.3 660.2 C 1596 669.8 1569.3 750.8 1481.6 730.7 S 1335.8 753 1294 786.5"
-      />
+      <g opacity="0.3" mask="url(#waterMask)">
+        <g transform="translate(0 1100) scale(1 -1)">
+          <Sun :time="time" />
+          <Mountains :time="time" />
+        </g>
+      </g>
+
+      <transition name="boat">
+        <g v-if="boatVisible">
+          <Boat />
+          <g transform="translate(0 1380) scale(1 -1)">
+            <Boat :fill="boatShadowColor.hex()" />
+          </g>
+        </g>
+      </transition>
+
+      <FgMountains :time="time" />
+
+      <g opacity="0.3" transform="translate(0 1573) scale(1 -1)">
+        <FgMountains :time="time" :rightOnly="true" />
+      </g>
     </svg>
+
+    <div class="mt-10 mb-14 space-x-4">
+      <button class="button" @click="boatVisible = !boatVisible">
+        Toggle boat
+      </button>
+      <button class="button" @click="cloudCount++">
+        Add cloud
+      </button>
+      <button class="button" @click="cloudCount--">
+        Remove cloud
+      </button>
+    </div>
+
+    <vue-slider
+      v-model="time"
+      :min="12"
+      :max="20"
+      :interval="1 / 60"
+      tooltip="always"
+      :tooltipFormatter="numToTime"
+    />
   </div>
 </template>
+
+<style scoped>
+.boat-enter-active {
+  transition: transform 2s ease-out;
+}
+
+.boat-leave-active {
+  transition: transform 3s ease-in;
+}
+
+.boat-enter-from {
+  transform: translateX(-350px);
+}
+
+.boat-leave-to {
+  transform: translateX(1400px);
+}
+</style>

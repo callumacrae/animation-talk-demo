@@ -66,8 +66,7 @@ provide("menuOpen", menuOpen);
     </svg>
   </button>
 
-  <!-- @todo remove overflow hidden before live -->
-  <div class="w-4/5 h-screen py-16 mx-auto overflow-hidden">
+  <div class="w-4/5 h-screen py-16 mx-auto">
     <router-view :key="$route.path" />
   </div>
 </template>

@@ -8,10 +8,12 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.3.4",
+    "chroma-js": "^2.1.2",
     "gsap": "^3.8.0",
     "lodash": "^4.17.21",
     "vue": "^3.2.19",
-    "vue-router": "^4.0.11"
+    "vue-router": "^4.0.11",
+    "vue-slider-component": "^4.0.0-beta.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.6",
