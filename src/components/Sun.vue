@@ -1,22 +1,16 @@
 <script setup>
 import { computed, defineProps } from "vue";
-import chroma from "chroma-js";
 
 const props = defineProps({ time: Number });
 
-const colorScale = chroma.scale(["white", "yellow"]).domain([8, 18]);
-const color = computed(() => {
-  return colorScale(props.time);
-});
-
 const rotation = computed(() => {
-  return ((props.time - 12) / 6) * 50 - 50;
+  return ((props.time - 14) / 4) * 50 - 50;
 });
 </script>
 
 <template>
   <circle
-    :fill="color.hex()"
+    fill="yellow"
     r="150"
     cx="800"
     cy="550"

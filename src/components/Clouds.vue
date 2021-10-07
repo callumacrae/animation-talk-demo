@@ -4,7 +4,9 @@ import chroma from "chroma-js";
 
 const props = defineProps({ cloudCount: Number, time: Number });
 
-const cloudColorScale = chroma.scale(["white", "pink"]).domain([12, 18]);
+const cloudColorScale = chroma
+  .scale(["white", "pink", "#4c363a"])
+  .domain([12, 18, 20]);
 const cloudColor = computed(() => {
   return cloudColorScale(props.time);
 });
@@ -31,8 +33,7 @@ function addCloud() {
 }
 
 function removeCloud() {
-  const i = Math.floor(clouds.value.length * Math.random());
-  clouds.value.splice(i, 1);
+  clouds.value.splice(0, 1);
 }
 
 watch(

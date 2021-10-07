@@ -4,12 +4,12 @@ import chroma from "chroma-js";
 
 const props = defineProps({ time: Number, rightOnly: Boolean });
 
-const bgColorScale = chroma.scale(["darkgreen", "purple"]).domain([12, 18]);
+const bgColorScale = chroma.scale(["darkgreen", "purple", "#1a001a"]).domain([16, 18, 20]);
 const bgColor = computed(() => {
   return bgColorScale(props.time);
 });
 
-const fgColorScale = chroma.scale(["green", "#520752"]).domain([12, 18]);
+const fgColorScale = chroma.scale(["green", "#520752", "#2c002c"]).domain([16, 18, 20]);
 const fgColor = computed(() => {
   return fgColorScale(props.time);
 });
