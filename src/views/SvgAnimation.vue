@@ -98,7 +98,7 @@ function goToTime(newTime) {
       </g>
     </svg>
 
-    <div class="relative mt-10">
+    <div class="relative h-24 mt-10">
       <transition name="controls">
         <div
           v-if="controlSection === 0"
