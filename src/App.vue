@@ -81,7 +81,7 @@ function toggleCode() {
 
   <CodePopup />
 
-  <GlobalEvents @keyup.c="toggleCode" />
+  <GlobalEvents @keyup.c="toggleCode" @keyup.esc="codeOpen = false" />
 </template>
 
 <style scoped>

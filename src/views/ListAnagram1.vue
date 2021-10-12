@@ -14,7 +14,7 @@ const splitText = computed(() =>
       List transitions <span class="block">(enter and leave)</span>
     </h1>
 
-    <input v-model="text" type="text" class="mb-10" />
+    <input v-model="text" type="text" class="mb-10" @keyup.stop />
 
     <transition-group name="anagram" tag="p" class="text-6xl">
       <span

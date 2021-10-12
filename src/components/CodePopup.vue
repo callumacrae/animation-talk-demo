@@ -25,9 +25,10 @@ watch(codeOpen, () => {
   <transition name="fade">
     <div
       v-if="codeOpen && code"
-      class="fixed inset-0 flex items-center justify-center bg-bgSidebar bg-opacity-80 backdrop-blur-sm"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-bgSidebar bg-opacity-80 backdrop-blur-sm"
+      @click="codeOpen = false"
     >
-      <pre class="w-11/12 max-w-3xl" style="max-height: 90%">
+      <pre class="w-11/12 max-w-3xl" style="max-height: 90%;" @click.stop>
 <code ref="codeEl" class="language-html">{{ code }}</code></pre>
     </div>
   </transition>

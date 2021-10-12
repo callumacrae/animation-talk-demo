@@ -24,7 +24,7 @@ function shuffleText() {
     <h1 class="mb-10">List transitions <span class="block">(move)</span></h1>
 
     <form @submit.prevent="shuffleText" @input="handleInput">
-      <input v-model="text" type="text" class="mb-10" />
+      <input v-model="text" type="text" class="mb-10" @keyup.stop />
     </form>
 
     <transition-group name="anagram" tag="p" class="text-6xl">
