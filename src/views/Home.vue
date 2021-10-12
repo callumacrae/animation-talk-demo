@@ -1,12 +1,30 @@
+<script setup>
+import { ref } from "vue";
+import { GlobalEvents } from "vue-global-events";
+
+const slide = ref(0);
+</script>
+
 <template>
-  <div class="flex flex-col items-center justify-center h-full">
-    <h1 style="font-size: 9.45vw;">
-      ANIMATION DEMO
-    </h1>
-    <p class="mb-6 font-light" style="font-size: 5.2vw;">
-      Click hamburger to toggle menu
-    </p>
+  <div class="flex flex-col justify-center h-full text-center">
+    <div v-if="slide === 0">
+      <h1 style="font-size: 7vw;">ANIMATION AND VUE.JS</h1>
+      <p class="mb-6 font-light" style="font-size: 5vw;">
+        @callumacrae
+      </p>
+    </div>
+    <div v-if="slide === 1">
+      <h1 style="font-size: 7.65vw;">Why animation?</h1>
+    </div>
+    <div v-else-if="slide === 2">
+      <h1 style="font-size: 9.45vw;">ANIMATION DEMO</h1>
+      <p class="mb-6 font-light" style="font-size: 5.2vw;">
+        Click hamburger to toggle menu
+      </p>
+    </div>
   </div>
+
+  <GlobalEvents @keyup.left="slide--" @keyup.right="slide++" />
 </template>
 
 <code>

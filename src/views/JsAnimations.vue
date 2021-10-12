@@ -40,10 +40,10 @@ function handleLeave(el, done) {
 </script>
 
 <template>
-  <div class="text-center">
-    <h1 class="mb-10">JavaScript Animations</h1>
+  <div class="mt-32 text-center">
+    <h1 class="mb-12">JavaScript Animations</h1>
 
-    <button class="mb-10 button" @click.prevent="active = !active">
+    <button class="mb-12 button" @click.prevent="active = !active">
       Toggle
     </button>
 

@@ -9,12 +9,12 @@ const splitText = computed(() =>
 </script>
 
 <template>
-  <div class="text-center">
-    <h1 class="mb-10">
+  <div class="mt-32 text-center">
+    <h1 class="mb-12">
       List transitions <span class="block">(enter and leave)</span>
     </h1>
 
-    <input v-model="text" type="text" class="mb-10" @keyup.stop />
+    <input v-model="text" type="text" class="mb-12" @keyup.stop />
 
     <transition-group name="anagram" tag="p" class="text-6xl">
       <span

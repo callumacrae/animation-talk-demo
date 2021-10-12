@@ -5,10 +5,10 @@ const active = ref(false);
 </script>
 
 <template>
-  <div class="text-center">
+  <div class="mt-32 text-center">
     <h1>CSS Animations</h1>
 
-    <button @click.prevent="active = !active" class="my-10 button">
+    <button @click.prevent="active = !active" class="my-12 button">
       Toggle
     </button>
 

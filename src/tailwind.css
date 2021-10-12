@@ -6,7 +6,7 @@
 
 @layer base {
   h1 {
-    @apply text-4xl font-extrabold leading-none;
+    @apply text-6xl font-extrabold leading-none;
   }
   h2 {
     @apply text-3xl font-extrabold;
@@ -18,7 +18,7 @@
     @apply mb-4;
   }
   .button {
-    @apply px-5 py-3 text-xl font-bold no-underline border-2 border-border rounded-md hover:bg-border;
+    @apply px-5 py-3 text-2xl font-bold no-underline border-2 border-border rounded-md hover:bg-border;
   }
   [type="text"] {
     @apply rounded-sm bg-hover;

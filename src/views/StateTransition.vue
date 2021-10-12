@@ -10,9 +10,9 @@ function newNumber() {
 </script>
 
 <template>
-  <div class="text-center">
-    <h1 class="mb-10">State transitions</h1>
-    <p class="mb-10 text-8xl">{{ number.toFixed(0) }}</p>
+  <div class="mt-32 text-center">
+    <h1 class="mb-12">State transitions</h1>
+    <p class="mb-12 text-9xl">{{ number.toFixed(0) }}</p>
     <button @click.prevent="newNumber" class="button">New number</button>
   </div>
 </template>
