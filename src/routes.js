@@ -12,13 +12,11 @@ export const routes = [
     path: "/js-animations",
     meta: { title: "JS Animations" },
     component: () => import("./views/JsAnimations.vue"),
-    props: { initial: false },
   },
   {
     path: "/js-animations-appear",
     meta: { title: "JS Animations" },
-    component: () => import("./views/JsAnimations.vue"),
-    props: { initial: true },
+    component: () => import("./views/JsAnimationsAppear.vue"),
   },
   {
     path: "/list-anagram-1",

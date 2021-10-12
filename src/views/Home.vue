@@ -8,3 +8,33 @@
     </p>
   </div>
 </template>
+
+<code>
+<script setup>
+import { ref } from "vue";
+const menuOpen = ref(false);
+</script>
+
+<template>
+  <transition name="menu-slide">
+    <div v-show="menuOpen" class="menu">
+      Menu contents here!
+    </div>
+  </transition>
+</template>
+
+<style scoped>
+.menu-slide-enter-active {
+  transition: transform 0.3s ease-out;
+}
+
+.menu-slide-leave-active {
+  transition: transform 0.3s ease-in;
+}
+
+.menu-slide-enter-from,
+.menu-slide-leave-to {
+  transform: translateX(100%);
+}
+</style>
+</code>

@@ -1,5 +1,7 @@
 <script setup>
 import { ref, provide } from "vue";
+import { GlobalEvents } from "vue-global-events";
+import CodePopup from "./components/CodePopup.vue";
 
 const links = [
   { text: "Index page", to: "/" },
@@ -14,6 +16,13 @@ const links = [
 
 const menuOpen = ref(false);
 provide("menuOpen", menuOpen);
+
+const codeOpen = ref(false);
+provide("codeOpen", codeOpen);
+
+function toggleCode() {
+  codeOpen.value = !codeOpen.value;
+}
 </script>
 
 <template>
@@ -69,6 +78,10 @@ provide("menuOpen", menuOpen);
   <div class="w-4/5 h-screen py-16 mx-auto">
     <router-view :key="$route.path" />
   </div>
+
+  <CodePopup />
+
+  <GlobalEvents @keyup.c="toggleCode" />
 </template>
 
 <style scoped>

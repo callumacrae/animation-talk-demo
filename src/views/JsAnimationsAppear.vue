@@ -2,7 +2,7 @@
 import { gsap } from "gsap";
 import { ref } from "vue";
 
-const active = ref(false);
+const active = ref(true);
 
 function handleEnter(el, done) {
   gsap
@@ -41,13 +41,18 @@ function handleLeave(el, done) {
 
 <template>
   <div class="text-center">
-    <h1 class="mb-10">JavaScript Animations</h1>
+    <h1 class="mb-10">
+      JavaScript Animations
+      <span class="block">
+        (with <code>appear</code> attr)
+      </span>
+    </h1>
 
     <button class="mb-10 button" @click.prevent="active = !active">
       Toggle
     </button>
 
-    <transition @enter="handleEnter" @leave="handleLeave" :css="false">
+    <transition @enter="handleEnter" @leave="handleLeave" :css="false" appear>
       <div v-show="active">
         <div class="relative inline-block px-8 py-6">
           <div class="absolute inset-0 rounded-lg bg-hover"></div>
@@ -64,7 +69,7 @@ function handleLeave(el, done) {
 import { gsap } from "gsap";
 import { ref } from "vue";
 
-const active = ref(false);
+const active = ref(true);
 
 function handleEnter(el, done) {
   gsap
@@ -84,7 +89,7 @@ function handleLeave(el, done) {
 </script>
 
 <template>
-  <transition @enter="handleEnter" @leave="handleLeave" :css="false">
+  <transition @enter="handleEnter" @leave="handleLeave" :css="false" appear>
     <div v-show="active">
       <div class="relative inline-block px-8 py-6">
         <div class="absolute inset-0 rounded-lg bg-hover"></div>

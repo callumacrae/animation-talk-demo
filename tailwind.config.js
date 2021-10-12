@@ -6,6 +6,7 @@ module.exports = {
   purge: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     colors: {
+      white: "white",
       bgMain: "rgb(31, 41, 55)",
       bgSidebar: "rgb(17, 24, 39)",
       primary: "rgb(229, 231, 235)",
