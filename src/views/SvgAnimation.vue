@@ -98,7 +98,14 @@ function goToTime(newTime) {
       </g>
     </svg>
 
-    <div class="relative h-24 mt-10">
+    <p class="mt-5 opacity-50">
+      Inspired by
+      <a href="https://dribbble.com/shots/16236792-Serenity">
+        Serenity by El B
+      </a>
+    </p>
+
+    <div class="relative h-24 mt-5">
       <transition name="controls">
         <div
           v-if="controlSection === 0"
